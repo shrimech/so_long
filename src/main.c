@@ -6,7 +6,7 @@
 /*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 07:10:31 by shrimech          #+#    #+#             */
-/*   Updated: 2025/04/02 10:37:55 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/04 01:03:25 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ int	ft_exit(t_game *game)
 int	main(int ac, char **av)
 {
 	t_game	game;
+	char *ext = ft_strrchr(av[1], '.');
 
 	if (ac == 2)
 	{
-		if (ft_strlen(av[1]) <= 4 || ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
-			return ((write(2, "Error : file of map chould be <*.ber>", 37), 1));
+		if (!ext || ft_strncmp(ext, ".ber", 5) != 0 || ext == av[1] || *(ext - 1) == '/')
+			return ((write(2, "Error: file must be in the format <name>.ber\n", 44), 1));
 		game_init(&game);
 		if (check_map(av[1], &game) == 0 || map_elements(&game) == 0
 			|| elements_count(&game) == 0
