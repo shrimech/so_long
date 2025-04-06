@@ -6,7 +6,7 @@
 /*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 16:20:29 by shrimech          #+#    #+#             */
-/*   Updated: 2025/04/02 10:26:15 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/06 16:45:00 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ void	texture(t_game *game)
 
 	a = 32;
 	init_cepew(game);
-	game->img_wall = mlx_xpm_file_to_image(game->mlx, "../texture/wall.xpm", &a,
+	game->img_wall = mlx_xpm_file_to_image(game->mlx, "./texture/wall.xpm", &a,
 			&a);
-	game->img_player = mlx_xpm_file_to_image(game->mlx, "../texture/player.xpm",
+	game->img_player = mlx_xpm_file_to_image(game->mlx, "./texture/player.xpm",
 			&a, &a);
 	game->img_collectib = mlx_xpm_file_to_image(game->mlx,
-			"../texture/collectib.xpm", &a, &a);
-	game->img_exit = mlx_xpm_file_to_image(game->mlx, "../texture/exit.xpm", &a,
+			"./texture/collectib.xpm", &a, &a);
+	game->img_exit = mlx_xpm_file_to_image(game->mlx, "./texture/exit.xpm", &a,
 			&a);
-	game->img_empty = mlx_xpm_file_to_image(game->mlx, "../texture/empty.xpm",
+	game->img_empty = mlx_xpm_file_to_image(game->mlx, "./texture/empty.xpm",
 			&a, &a);
 	if (!game->img_wall || !game->img_player || !game->img_collectib
 		|| !game->img_exit || !game->img_empty)

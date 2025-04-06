@@ -6,23 +6,23 @@
 /*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:12:33 by shrimech          #+#    #+#             */
-/*   Updated: 2025/04/03 19:23:12 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/06 18:11:06 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "../ft_printf/ft_printf.h"
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
-# include "/home/togo/Downloads/minilibx-linux/mlx.h"
-#include "../ft_printf/ft_printf.h"
+# include "/usr/include/minilibx-linux/minilibx-linux/mlx.h"
 # include <unistd.h>
 
 typedef struct s_game
 {
-	size_t		width;
-	size_t		high;
+	size_t	width;
+	size_t	high;
 	char	**map;
 	int		colect;
 	int		exit;
@@ -61,11 +61,11 @@ void		go_right(t_game *game);
 void		go_left(t_game *game);
 void		go_up(t_game *game);
 void		go_down(t_game *game);
-//bad trip with leaks
-void free_map(char **map);
-void free_game_map(t_game *game);
-void free_textures(t_game *game);
-void pause_mlx(t_game *game);
-void free_if_i(t_game *game, int i);
+// bad trip with leaks
+void		free_map(char **map);
+void		free_game_map(t_game *game);
+void		free_textures(t_game *game);
+void		pause_mlx(t_game *game);
+void		free_if_i(t_game *game, int i);
 
 #endif

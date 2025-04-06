@@ -6,7 +6,7 @@
 /*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 07:26:05 by shrimech          #+#    #+#             */
-/*   Updated: 2025/04/04 01:54:28 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:16:37 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,13 @@ void	hight_map(t_game *game, char *filename)
 
 int	check_map(char *av, t_game *game)
 {
-	int		fd;
-	int		i;
 	char	*line;
 
+	int (fd), (i);
 	i = 0;
 	fd = open(av, O_RDONLY);
+	if (fd <= 0)
+		return (0);
 	hight_map(game, av);
 	game->map = malloc(sizeof(char *) * (game->high + 1));
 	line = get_next_line(fd);
@@ -111,10 +112,9 @@ int	check_map(char *av, t_game *game)
 		line = NULL;
 		if (gt_strlen(game->map[i]) != game->width || game->map[i][0] != '1'
 			|| game->map[i][gt_strlen(game->map[i]) - 1] != '1')
-			return ((/*free_if_i(game, i),*/ 0));
+			return ((free_if_i(game, i), 0));
 		line = get_next_line(fd);
 		i++;
 	}
-	game->map[i] = NULL;
-	return ((close(fd), 1));
+	return ((game->map[i] = NULL, close(fd), 1));
 }
